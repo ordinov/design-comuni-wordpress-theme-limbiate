@@ -27,7 +27,6 @@ $current_group = dci_get_current_group();
 <header
     class="it-header-wrapper"
     data-bs-target="#header-nav-wrapper"
-    style=""
 >
     <?php get_template_part("template-parts/header/slimheader"); ?> 
 
