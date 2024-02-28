@@ -259,3 +259,5 @@ function console_log ($output, $msg = "log") {
 function get_parent_template () {
 	return basename( get_page_template_slug( wp_get_post_parent_id() ) );
 }
+
+add_theme_support('post-thumbnails');

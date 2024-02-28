@@ -1,0 +1,12 @@
+- problema flag, lo avevi già risoluto nel DUC, ricordiamoci di riportarlo
+- problema immagini in evidenza, già risolto in Opportunity riportiamolo sugli altri
+
+- su tutti i siti: footer, vorrei gestirlo con i widget semplici o in html e disabilitare le preimpostazioni del tema che hanno dei campi fissi che io non voglio valorizzare e non mi consentono invece di inserire ciò che mi serve
+- eventi, modifichiamo i campi secondo le specifiche che ci siamo dati così inizio a capire come si compone la cavolo di pagina calendario o se dobbiamo metterci mano ( su tutti i siti):
+    - a chi è rivolto => NON Obbligatorio
+    - persone dell'amministrazione => togliere
+    - Luogo dell'evento => diventa campo di testo
+    - Punti di contatto => diventa campo di testo
+- eventi teatro, barra a scorrimento in home reference La Scala -mi piace volare basso lo so-
+- quando uso template libero mi appare scritta di template non valido bla bla bla, io la sto nascondendo malamente (lo vedi nei 2 siti in prod), valutiamo se farlo in modo più pulito
+- mappa lavori pubblici (widget)
