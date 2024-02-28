@@ -113,13 +113,13 @@ function force_post_title( $post )  {
     <?php
 }
 
-/**
- * Remove Featured Image Field on Posts Edit Screen
- */
-add_action('do_meta_boxes', 'remove_thumbnail_box');
-function remove_thumbnail_box() {
-    remove_meta_box( 'postimagediv',array_merge(array('post','page'),dci_get_tipologie_names()),'side' );
-}
+// /**
+//  * Remove Featured Image Field on Posts Edit Screen
+//  */
+// add_action('do_meta_boxes', 'remove_thumbnail_box');
+// function remove_thumbnail_box() {
+//     remove_meta_box( 'postimagediv',array_merge(array('post','page'),dci_get_tipologie_names()),'side' );
+// }
 
 /**
  * create menu locations
