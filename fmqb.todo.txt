@@ -1,5 +1,4 @@
 - problema flag, lo avevi già risoluto nel DUC, ricordiamoci di riportarlo
-- problema immagini in evidenza, già risolto in Opportunity riportiamolo sugli altri
 
 - su tutti i siti: footer, vorrei gestirlo con i widget semplici o in html e disabilitare le preimpostazioni del tema che hanno dei campi fissi che io non voglio valorizzare e non mi consentono invece di inserire ciò che mi serve
 - eventi, modifichiamo i campi secondo le specifiche che ci siamo dati così inizio a capire come si compone la cavolo di pagina calendario o se dobbiamo metterci mano ( su tutti i siti):

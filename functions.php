@@ -261,3 +261,8 @@ function get_parent_template () {
 }
 
 add_theme_support('post-thumbnails');
+
+/**
+ * add widgets
+ */
+require get_template_directory() . '/widgets/index.php';
