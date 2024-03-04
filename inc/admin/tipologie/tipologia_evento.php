@@ -189,12 +189,13 @@ function dci_add_eventi_metaboxes() {
 
     $cmb_descrizione->add_field( array(
         'id' => $prefix . 'a_chi_e_rivolto',
-        'name'        => __( 'A chi è rivolto *', 'design_comuni_italia' ),
+        // 'name'        => __( 'A chi è rivolto *', 'design_comuni_italia' ),
+        'name'        => __( 'A chi è rivolto', 'design_comuni_italia' ),
         'desc' => __( 'Descrizione testuale dei principali destinatari dell\'Evento' , 'design_comuni_italia' ),
         'type'    => 'wysiwyg',
-        'attributes'    => array(
-            'required'    => 'required'
-        ),
+        // 'attributes'    => array(
+        //     'required'    => 'required'
+        // ),
         'options' => array(
             'media_buttons' => false,
             'textarea_rows' => 10,
@@ -202,17 +203,17 @@ function dci_add_eventi_metaboxes() {
         ),
     ) );
 
-    $cmb_descrizione->add_field( array(
-            'id' => $prefix . 'persone',
-            'name'       => __('Persone dell\'amministrazione', 'design_comuni_italia' ),
-            'desc' => __( 'Link a persone dell\'amministrazione che interverranno all\'evento ', 'design_comuni_italia' ),
-            'type'    => 'pw_multiselect',
-            'options' => dci_get_posts_options('persona_pubblica'),
-            'attributes' => array(
-                'placeholder' =>  __( 'Seleziona le Persone Pubbliche', 'design_comuni_italia' ),
-            ),
-        )
-    );
+    // $cmb_descrizione->add_field( array(
+    //         'id' => $prefix . 'persone',
+    //         'name'       => __('Persone dell\'amministrazione', 'design_comuni_italia' ),
+    //         'desc' => __( 'Link a persone dell\'amministrazione che interverranno all\'evento ', 'design_comuni_italia' ),
+    //         'type'    => 'pw_multiselect',
+    //         'options' => dci_get_posts_options('persona_pubblica'),
+    //         'attributes' => array(
+    //             'placeholder' =>  __( 'Seleziona le Persone Pubbliche', 'design_comuni_italia' ),
+    //         ),
+    //     )
+    // );
 
     $cmb_gallerie_multimediali = new_cmb2_box( array(
         'id'           => $prefix . 'box_gallerie_multimediali',
@@ -257,12 +258,15 @@ function dci_add_eventi_metaboxes() {
     $cmb_luogo->add_field( array(
         'id' =>  $prefix . 'luogo_evento',
         'name'    => __( 'Luogo dell\'evento', 'design_comuni_italia' ),
-        'desc' => __( 'Selezione il <a href="edit.php?post_type=luogo">luogo</a> in cui viene organizzato l\'evento. ' , 'design_comuni_italia' ),
-        'type'    => 'pw_select',
-        'show_option_none' => true,
-        'options' =>  dci_get_posts_options('luogo'),
+        // 'desc' => __( 'Selezione il <a href="edit.php?post_type=luogo">luogo</a> in cui viene organizzato l\'evento. ' , 'design_comuni_italia' ),
+        // 'type'    => 'pw_select',
+        'type'    => 'text',
+        // 'show_option_none' => true,
+        // 'options' =>  dci_get_posts_options('luogo'),
         'attributes'    => array(
-            'placeholder' =>  __( 'Seleziona il Luogo', 'design_comuni_italia' ),
+            // 'placeholder' =>  __( 'Seleziona il Luogo', 'design_comuni_italia' ),
+            // 'placeholder' =>  __( 'Seleziona il Luogo', 'design_comuni_italia' ),
+            'maxlength'  => '2048'
         ),
     ) );
 
@@ -335,13 +339,17 @@ function dci_add_eventi_metaboxes() {
 
     $cmb_contatti->add_field( array(
         'id' => $prefix . 'punti_contatto',
-        'name'        => __( 'Punti di contatto *', 'design_comuni_italia' ),
-        'desc' => __( 'Telefono, mail o altri punti di contatto<br><a href="post-new.php?post_type=punto_contatto">Inserisci Punto di Contatto</a>' , 'design_comuni_italia' ),
-        'type'    => 'pw_multiselect',
-        'options' => dci_get_posts_options('punto_contatto'),
+        // 'name'        => __( 'Punti di contatto *', 'design_comuni_italia' ),
+        'name'        => __( 'Punti di contatto', 'design_comuni_italia' ),
+        // 'desc' => __( 'Telefono, mail o altri punti di contatto<br><a href="post-new.php?post_type=punto_contatto">Inserisci Punto di Contatto</a>' , 'design_comuni_italia' ),
+        'desc' => __( 'Telefono, mail o altri punti di contatto' , 'design_comuni_italia' ),
+        // 'type'    => 'pw_multiselect',
+        'type'    => 'textarea',
+        // 'options' => dci_get_posts_options('punto_contatto'),
         'attributes'    => array(
-            'required'    => 'required',
-            'placeholder' =>  __( ' Seleziona i Punti di Contatto', 'design_comuni_italia' ),
+            // 'required'    => 'required',
+            // 'placeholder' =>  __( ' Seleziona i Punti di Contatto', 'design_comuni_italia' ),
+            'maxlength'  => '2048'
         ),
     ) );
 
