@@ -260,7 +260,7 @@ function dci_add_eventi_metaboxes() {
         'name'    => __( 'Luogo dell\'evento', 'design_comuni_italia' ),
         // 'desc' => __( 'Selezione il <a href="edit.php?post_type=luogo">luogo</a> in cui viene organizzato l\'evento. ' , 'design_comuni_italia' ),
         // 'type'    => 'pw_select',
-        'type'    => 'text',
+        'type'    => 'textarea',
         // 'show_option_none' => true,
         // 'options' =>  dci_get_posts_options('luogo'),
         'attributes'    => array(

@@ -205,10 +205,14 @@ get_header();
 
                <?php if ($luogo_evento) { ?>
                   <article id="luogo" class="it-page-section mb-5">
-                     <h2 class="mb-3">Luogo</h2>
+                     <h2 class="mb-3">Luogo <svg class="icon" >
+                     <use xlink:href="#it-pin" aria-hidden="true"></use>
+                 </svg></h2>
                      <?php
-                     $luogo = $luogo_evento;
-                     get_template_part("template-parts/single/luogo");
+                        // $luogo = $luogo_evento;
+                        // get_template_part("template-parts/single/luogo");
+                        // echo '<a href="http://maps.google.com/maps?q=' . $luogo_evento . '" target="_blank"><p class="evento-luogo">' . nl2br($luogo_evento) . '</p></a>';
+                        echo '<p class="evento-luogo">' . nl2br($luogo_evento) . '</p>';
                      ?>
                   </article>
                <?php } ?>
@@ -327,7 +331,7 @@ get_header();
                      // foreach ($punti_contatto as $pc_id) {
                         // get_template_part('template-parts/single/punto-contatto');
                      // } 
-                        echo '<p>' . $punti_contatto . '</p>';
+                        echo '<p class="punti-contatto-evento">' . nl2br($punti_contatto) . '</p>';
                      ?>
                   <?php } ?>
                   <?php if (is_array($organizzatori) && count($organizzatori)) { ?>

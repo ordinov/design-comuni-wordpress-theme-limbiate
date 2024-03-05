@@ -1,0 +1,69 @@
+.events-bar-main {
+    background-color: lightgrey;
+}
+
+.events-bar-main .events-bar-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.events-bar-main .events-bar-list .event-item {
+    flex: 1 1 auto;
+    max-width: calc(100% / var(--event-count));
+    box-sizing: border-box;
+    padding: 26px 10px;
+    text-align: left;
+    font-size: 1.4rem;
+    font-weight: 600;
+    background-color: lightgrey;
+    border-right: 1px solid grey;
+}
+
+.event-item.hoverable {
+    cursor: pointer;
+}
+
+/* .events-bar-main .events-bar-list .event-item:last-child {
+    border-right: 1px solid grey;
+} */
+
+.events-bar-main .events-bar-list .event-item.hoverable:hover {
+    background-color: rgb(225, 225, 225);
+    color: #620202;
+}
+
+.events-bar-main .events-bar-list .event-item p.event-item-date {
+    margin: 0px;
+    font-size: 1.1rem;
+}
+
+.events-bar-main .events-bar-list .event-item p.event-item-title {
+    margin: 0px;
+}
+
+.events-bar-main .events-bar-list .event-item p.event-title-bigger {
+    margin: 0px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 2rem;
+}
+
+.events-bar-main .events-bar-list .event-item p.event-item-hour {
+    margin: 0px;
+    margin-top: -6px;
+    padding: 0px;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .events-bar-main .events-bar-list {
+        flex-direction: column;
+    }
+    .events-bar-main .events-bar-list .event-item {
+        flex-basis: 100%;
+    }
+}

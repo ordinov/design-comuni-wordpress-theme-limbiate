@@ -1,5 +1,5 @@
 - problema flag, lo avevi già risoluto nel DUC, ricordiamoci di riportarlo
 
-- eventi teatro, barra a scorrimento in home reference La Scala -mi piace volare basso lo so-
-- quando uso template libero mi appare scritta di template non valido bla bla bla, io la sto nascondendo malamente (lo vedi nei 2 siti in prod), valutiamo se farlo in modo più pulito
+- eventi teatro, barra a scorrimento in home reference La Scala
+- teatro full calendario
 - mappa lavori pubblici (widget)
