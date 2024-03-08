@@ -67,3 +67,21 @@
         flex-basis: 100%;
     }
 }
+
+#footer-widget-area {
+    margin-bottom: 20px;
+}
+
+#footer-widget-area > div.hr {
+    padding: 0px 10px;
+}
+
+#footer-widget-area > div.footer-items-wrapper div.widget {
+    margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    #footer-widget-area > div.footer-items-wrapper div.widget {
+        margin-bottom: 0px;
+    }
+}
