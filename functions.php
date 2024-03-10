@@ -283,10 +283,13 @@ require get_template_directory() . '/shortcodes/index.php';
 */
 function limbiate_enqueue_styles()
 {
+    wp_enqueue_style('fullcalendar', get_stylesheet_directory_uri() . '/assets/css/fullcalendar.min.css');
 	wp_enqueue_style('limbiate-style', get_stylesheet_directory_uri() . '/limbiate.css');
 }
 add_action('wp_enqueue_scripts', 'limbiate_enqueue_styles');
 function limbiate_enqueue_scripts() {
+    wp_enqueue_script('fullcalendar', get_stylesheet_directory_uri() . '/assets/js/fullcalendar.min.js', array(), false, true);
+    wp_enqueue_script('fullcalendar-locale-it', get_stylesheet_directory_uri() . '/assets/js/fullcalendar-locale-it.js', array(), false, true);
     wp_enqueue_script('limbiate-script', get_stylesheet_directory_uri() . '/limbiate.js', array(), false, true);
 }
 

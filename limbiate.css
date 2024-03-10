@@ -23,6 +23,12 @@
     border-right: 1px solid grey;
 }
 
+.events-bar-main .events-bar-list .event-item-title {
+    padding-right: 0px;
+    padding-bottom: 0px;
+    line-height: 1.2rem;
+}
+
 .event-item.hoverable {
     cursor: pointer;
 }
@@ -54,15 +60,15 @@
 
 .events-bar-main .events-bar-list .event-item p.event-item-hour {
     margin: 0px;
-    margin-top: -6px;
+    margin-top: -2px;
     padding: 0px;
     font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
-    .events-bar-main .events-bar-list {
+    /* .events-bar-main .events-bar-list {
         flex-direction: column;
-    }
+    } */
     .events-bar-main .events-bar-list .event-item {
         flex-basis: 100%;
     }
@@ -85,3 +91,56 @@
         margin-bottom: 0px;
     }
 }
+
+/* CALENDAR */
+
+.link-to-calendar {
+    background: #9B1733;
+    color: white;
+    padding: 4px 8px;
+    margin-top: 14px;
+    display: inline-block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: right;
+}
+
+.link-to-calendar > a {
+    background: inherit!important;
+    color: inherit!important;
+}
+
+.link-to-calendar:hover, .link-to-calendar:focus {
+    background: #642231!important;
+    color: white!important;
+}
+
+#limbiate-calendar-container {
+    margin-bottom: 100px;
+}
+
+.fc-toolbar-title {
+    text-transform: uppercase;
+}
+
+a.fc-col-header-cell-cushion, a.fc-daygrid-day-number  {
+    color: black;
+}
+
+.fc-h-event .fc-event-main-frame {
+    display: block;
+}
+
+.fc-h-event .limbiate-cal-date,
+.fc-h-event .limbiate-cal-title
+ {
+    text-align:center;
+}
+
+.fc-h-event .limbiate-cal-title {
+    margin-top: 0px;
+    font-weight: bold;
+}
+
+/* END CALENDAR */
