@@ -41,23 +41,23 @@ function dci_theme_activation() {
     }
 
 }
-add_action( 'after_switch_theme', 'dci_theme_activation' );
+// add_action( 'after_switch_theme', 'dci_theme_activation' );
 
-function dci_reload_theme_option_page() {
-    if(isset($_GET["action"]) && $_GET["action"] == "reload"){
-        dci_theme_activation();
-    }
+// function dci_reload_theme_option_page() {
+//     if(isset($_GET["action"]) && $_GET["action"] == "reload"){
+//         dci_theme_activation();
+//     }
 
-    echo "<div class='wrap'>";
-    echo '<h1>Ricarica i dati di attivazione del tema</h1>';
+//     echo "<div class='wrap'>";
+//     echo '<h1>Ricarica i dati di attivazione del tema</h1>';
 
-    echo '<a href="themes.php?page=reload-data-theme-options&action=reload" class="button button-primary">Ricarica i dati di attivazione (menu, tipologie, etc)</a>';
-    echo "</div>";
-}
-function dci_add_update_theme_page() {
-    add_theme_page( 'Ricarica i dati', 'Ricarica i dati', 'edit_theme_options', 'reload-data-theme-options', 'dci_reload_theme_option_page' );
-}
-add_action( 'admin_menu', 'dci_add_update_theme_page' );
+//     echo '<a href="themes.php?page=reload-data-theme-options&action=reload" class="button button-primary">Ricarica i dati di attivazione (menu, tipologie, etc)</a>';
+//     echo "</div>";
+// }
+// function dci_add_update_theme_page() {
+//     add_theme_page( 'Ricarica i dati', 'Ricarica i dati', 'edit_theme_options', 'reload-data-theme-options', 'dci_reload_theme_option_page' );
+// }
+// add_action( 'admin_menu', 'dci_add_update_theme_page' );
 
 /**
  * inserimento ricorsivo dei termini di tassonomia
