@@ -1,0 +1,29 @@
+#limbiate-zone-map-container {
+    position: relative;
+    display: block;
+    clear: both;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+}
+
+.limbiate-zone-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 600px;
+    z-index: 10;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.limbiate-zone-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 600px;
+    z-index: 1;
+    cursor: pointer;
+}

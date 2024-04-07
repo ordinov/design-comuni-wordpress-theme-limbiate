@@ -294,3 +294,9 @@ function limbiate_enqueue_scripts() {
 }
 
 add_action('wp_enqueue_scripts', 'limbiate_enqueue_scripts');
+
+/**
+ * add shortcode mappa zone (es. per Lavori pubblici)
+ */
+require get_template_directory() . '/zones-map/index.php';
+
