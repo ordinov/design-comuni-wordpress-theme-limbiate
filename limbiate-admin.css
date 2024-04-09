@@ -1,0 +1,24 @@
+/* hide useless menu */
+
+#menu-posts-servizio, 
+#menu-posts-fase,
+#menu-posts-luogo,
+#menu-posts-documento_pubblico,
+#menu-posts-dataset,
+#menu-posts-unita_organizzativa,
+#menu-posts-persona_pubblica,
+#menu-posts-punto_contatto,
+#menu-posts-sito_tematico,
+#menu-posts-incarico,
+#menu-posts-pratica,
+#menu-posts-documento_privato,
+#menu-posts-messaggio,
+#menu-posts-pagamento,
+#menu-posts-appuntamento,
+#menu-posts-richiesta_assistenza,
+#menu-posts-domanda_frequente,
+#menu-posts-rating,
+#menu-comments {
+    display: none;
+}
+

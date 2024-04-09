@@ -1,18 +1,26 @@
 <?php
 
 function map_add_admin_page() {
-    // Add a new top-level menu (admin page)
-    add_menu_page(
-        'Mappa zone', // Page title
-        'Mappa zone', // Menu title
-        'manage_options', // Capability required to see this menu item
-        'map-admin-page', // Menu slug, used to uniquely identify the page
-        'map_admin_page_content', // Function that outputs the content of the page
-        'dashicons-location', // Icon URL
-        6 // Position in the menu. 
+    // add_menu_page(
+    //     'Mappa zone', // Page title
+    //     'Mappa zone', // Menu title
+    //     'manage_options', // Capability required to see this menu item
+    //     'map-admin-page', // Menu slug, used to uniquely identify the page
+    //     'map_admin_page_content', // Function that outputs the content of the page
+    //     'dashicons-location', // Icon URL
+    //     6 // Position in the menu. 
+    // );
+    add_submenu_page(
+        'dci_options', // Parent slug
+        'Mappa zone',                // Page title
+        'Mappa zone',                // Menu title
+        'manage_options',            // Capability required
+        'map-admin-page',            // Menu slug
+        'map_admin_page_content'     // Function to display the submenu page content
     );
+    // toplevel_page_dci_options
 }
-add_action('admin_menu', 'map_add_admin_page');
+add_action('admin_menu', 'map_add_admin_page', 99);
 
 function map_admin_page_content() {
     // Get existing data
