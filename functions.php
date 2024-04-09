@@ -1,9 +1,5 @@
 <?php
 
-@ini_set( 'upload_max_size' , '256M' );
-@ini_set( 'post_max_size', '256M');
-// @ini_set( 'max_execution_time', '300' );
-
 /**
  * Design Comuni Italia functions and definitions
  *
