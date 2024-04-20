@@ -3,3 +3,9 @@
 - eventi teatro, barra a scorrimento in home reference La Scala
 - teatro full calendario
 - mappa lavori pubblici (widget)
+
+
+CONTI:
+
+- 2h gestione utenti
+- 3h ripristino immagine in evidenza eventi

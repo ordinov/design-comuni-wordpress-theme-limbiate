@@ -12,7 +12,7 @@ function dci_register_post_type_evento() {
         'singular_name'         => _x( 'Evento', 'Post Type Singular Name', 'design_comuni_italia' ),
         'add_new'               => _x( 'Aggiungi un Evento', 'Post Type Singular Name', 'design_comuni_italia' ),
         'add_new_item'               => _x( 'Aggiungi un Evento', 'Post Type Singular Name', 'design_comuni_italia' ),
-        'featured_image' => __( 'Logo Identificativo dell\'Evento', 'design_comuni_italia' ),
+        // 'featured_image' => __( 'Logo Identificativo dell\'Evento', 'design_comuni_italia' ),
         'edit_item'      => _x( 'Modifica l\'Evento', 'Post Type Singular Name', 'design_comuni_italia' ),
         'view_item'      => _x( 'Visualizza l\'Evento', 'Post Type Singular Name', 'design_comuni_italia' ),
         'set_featured_image' => __( 'Seleziona Immagine Evento' ),

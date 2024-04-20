@@ -307,3 +307,15 @@ add_action('wp_enqueue_scripts', 'limbiate_enqueue_scripts');
  */
 require get_template_directory() . '/zones-map/index.php';
 
+
+function add_thumbnail_support_for_evento() {
+    // Ensure the post type is registered
+    add_action('init', 'register_thumbnail_support');
+}
+
+function register_thumbnail_support() {
+    // Add thumbnail support to 'evento' post type
+    add_post_type_support('evento', 'thumbnail');
+}
+
+add_action('after_setup_theme', 'add_thumbnail_support_for_evento');

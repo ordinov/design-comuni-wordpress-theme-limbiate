@@ -26,3 +26,8 @@
 #cms_admin_id {
     width: 100px;
 }
+
+/* HIDE custom Image in event (replaced with standard featured image) */
+.cmb2-id--dci-evento-immagine {
+    display: none!important;
+}
