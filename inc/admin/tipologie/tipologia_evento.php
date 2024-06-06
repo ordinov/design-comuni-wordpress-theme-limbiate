@@ -66,7 +66,7 @@ function dci_add_eventi_metaboxes() {
     //tipo evento
     $cmb_tipo_evento = new_cmb2_box( array(
         'id'           => $prefix . 'box_tipo_evento',
-        'title'        => __( 'Tipo di evento *', 'design_comuni_italia' ),
+        'title'        => __( 'Tipo di evento', 'design_comuni_italia' ),
         'object_types' => array( 'evento' ),
         'context'      => 'side',
         'priority'     => 'high',
@@ -81,7 +81,7 @@ function dci_add_eventi_metaboxes() {
         'remove_default' => 'true',
         'show_option_none' => false,
         'attributes' => array(
-            'required' => 'required'
+            // 'required' => 'required'
         )
     ) );
 
@@ -138,7 +138,7 @@ function dci_add_eventi_metaboxes() {
     //argomenti
     $cmb_argomenti = new_cmb2_box( array(
         'id'           => $prefix . 'box_argomenti',
-        'title'        => __( 'Argomenti *', 'design_comuni_italia' ),
+        'title'        => __( 'Argomenti', 'design_comuni_italia' ),
         'object_types' => array( 'evento' ),
         'context'      => 'side',
         'priority'     => 'high',
@@ -148,18 +148,18 @@ function dci_add_eventi_metaboxes() {
         'id' => $prefix . 'argomenti',
         'type'             => 'taxonomy_multicheck_hierarchical',
         'taxonomy'       => 'argomenti',
-        'show_option_none' => false,
-        'remove_default' => 'true',
+        //'show_option_none' => false,
+        //'remove_default' => 'true',
     ) );
 
     $cmb_apertura->add_field( array(
         'id' => $prefix . 'descrizione_breve',
-        'name'        => __( 'Descrizione breve *', 'design_comuni_italia' ),
+        'name'        => __( 'Descrizione breve', 'design_comuni_italia' ),
         'desc' => __( 'Descrizione sintentica dell\'evento, inferiore a 255 caratteri' , 'design_comuni_italia' ),
         'type' => 'textarea',
         'attributes'    => array(
             'maxlength'  => '255',
-            'required'    => 'required'
+            //'required'    => 'required'
         ),
     ) );
 
