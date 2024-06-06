@@ -117,7 +117,7 @@ get_header();
                                                    </a>
                                                 </li>
                                              <?php } ?>
-                                             <?php if ($start_timestamp && $end_timestamp) { ?>
+                                             <?php if ($start_timestamp || $end_timestamp) { ?>
                                                 <li class="nav-item">
                                                    <a class="nav-link" href="#date-e-orari">
                                                       <span class="title-medium">Date e orari</span>
@@ -217,44 +217,48 @@ get_header();
                   </article>
                <?php } ?>
 
-               <?php if ($start_timestamp && $end_timestamp) { ?>
+               <?php if ($start_timestamp || $end_timestamp) { ?>
                   <article id="date-e-orari" class="it-page-section mb-5">
                      <h2 class="mb-3">Date e orari</h2>
                      <div class="point-list-wrapper my-4">
-                        <div class="point-list">
-                           <h3 class="point-list-aside point-list-primary fw-normal">
-                              <span class="point-date font-monospace"><?php echo $start_date_arr[0]; ?></span>
-                              <span class="point-month font-monospace"><?php echo $start_date_arr[1]; ?></span>
-                           </h3>
-                           <div class="point-list-content">
-                              <div class="card card-teaser shadow rounded">
-                                 <div class="card-body">
-                                    <h3 class="card-title h5 m-0">
-                                       <?php echo $start_date_arr[3] . ':' . $start_date_arr[4]; ?> - Inizio evento
-                                    </h3>
+                        <?php if ($start_timestamp) { ?>
+                           <div class="point-list">
+                              <h3 class="point-list-aside point-list-primary fw-normal">
+                                 <span class="point-date font-monospace"><?php echo $start_date_arr[0]; ?></span>
+                                 <span class="point-month font-monospace"><?php echo $start_date_arr[1]; ?></span>
+                              </h3>
+                              <div class="point-list-content">
+                                 <div class="card card-teaser shadow rounded">
+                                    <div class="card-body">
+                                       <h3 class="card-title h5 m-0">
+                                          <?php echo $start_date_arr[3] . ':' . $start_date_arr[4]; ?> - Inizio evento
+                                       </h3>
+                                    </div>
                                  </div>
                               </div>
                            </div>
-                        </div>
-                        <div class="point-list">
-                           <h3 class="point-list-aside point-list-primary fw-normal">
-                              <div class="point-date font-monospace"><?php echo $end_date_arr[0]; ?></div>
-                              <div class="point-month font-monospace"><?php echo $end_date_arr[1]; ?></div>
-                           </h3>
-                           <div class="point-list-content">
-                              <div class="card card-teaser shadow rounded">
-                                 <div class="card-body">
-                                    <h3 class="card-title h5 m-0">
-                                       <?php echo $end_date_arr[3]; ?>:<?php echo $end_date_arr[4]; ?> - Fine evento
-                                    </h3>
+                        <?php } ?>
+                        <?php if ($end_timestamp) { ?>
+                           <div class="point-list">
+                              <h3 class="point-list-aside point-list-primary fw-normal">
+                                 <div class="point-date font-monospace"><?php echo $end_date_arr[0]; ?></div>
+                                 <div class="point-month font-monospace"><?php echo $end_date_arr[1]; ?></div>
+                              </h3>
+                              <div class="point-list-content">
+                                 <div class="card card-teaser shadow rounded">
+                                    <div class="card-body">
+                                       <h3 class="card-title h5 m-0">
+                                          <?php echo $end_date_arr[3]; ?>:<?php echo $end_date_arr[4]; ?> - Fine evento
+                                       </h3>
+                                    </div>
                                  </div>
                               </div>
                            </div>
-                        </div>
+                        <?php } ?>
                      </div>
                      <?php
                      $data_inizio = date_i18n("Ymd\THi00", date($start_timestamp));
-                     $data_fine = date_i18n("Ymd\THi00", date($end_timestamp));
+                     $data_fine = $end_timestamp ? date_i18n("Ymd\THi00", date($end_timestamp)) : date_i18n("Ymd\THi00", date($start_timestamp));
                      //   $luogo = $luogo_evento->post_title;
                      $luogo = $luogo_evento;
                      ?>
