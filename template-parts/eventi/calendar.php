@@ -22,7 +22,7 @@ if ($events_query->have_posts()) {
             $start_date_formatted = date('Y-m-d\TH:i:s', $event_start_timestamp);
             $eventColor = ($event_start_timestamp < $current_timestamp) ? 'grey' : '#9B1733';
             $events[] = array(
-                'title' => get_the_title(),
+                'title' => html_entity_decode(get_the_title(), ENT_QUOTES | ENT_HTML5, 'UTF-8'),
                 'start' => $start_date_formatted,
                 'url' => get_permalink(),
                 'color' => $eventColor
@@ -60,6 +60,7 @@ if ($events_query->have_posts()) {
                 omitZeroMinute: false,
             },
             eventContent: function(arg) {
+                console.log(arg);
                 let startTime = arg.event.start ? new Date(arg.event.start) : '';
                 let formattedTime = startTime ? `Ore ${startTime.getHours()}:${startTime.getMinutes().toString().padStart(2, '0')}` : '';
 
