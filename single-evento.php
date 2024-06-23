@@ -63,6 +63,7 @@ get_header();
                <p data-audio>
                   <?php echo $descrizione_breve; ?>
                </p>
+               <h4><?php echo $start_date; ?></h4>
             </div>
             <div class="col-lg-3 offset-lg-1">
                <?php
