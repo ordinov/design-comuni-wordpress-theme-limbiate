@@ -12,7 +12,7 @@ function limbiate_events_bar_shortcode($atts)
         'E d MMMM'
     );
 
-    $atts = shortcode_atts(['posts' => 4], $atts, 'latest_posts');
+    $atts = shortcode_atts(['posts' => 4, 'title' => 'In Arrivo in Teatro'], $atts, 'latest_posts');
 
     $output = '';
 
@@ -41,7 +41,7 @@ function limbiate_events_bar_shortcode($atts)
         $output .= '<div class="events-bar-main"><div class="container events-bar-container">';
         $output .= '<ul class="events-bar-list" style="--event-count: ' . max($the_query->post_count +1, 1) . ';">';
         $output .= '<li class="event-item event-item-title">
-            <p class="event-title-bigger">In Arrivo in Teatro</p>
+            <p class="event-title-bigger">' . $atts['title'] . '</p>
             <div class="link-to-calendar"><a href="' . home_url('/eventi') . '">Calendario mensile &rarr;</a></div>
         </li>';
         while ($the_query->have_posts()) {
