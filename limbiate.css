@@ -175,3 +175,58 @@ a.fc-daygrid-day-number {
     display: none!important;
     top: -100px;
 }
+
+/* END STICKY HEADER */
+
+/* START DROPDOWN MENUS */
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0;
+    margin-top: 0px!important;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #000;
+    text-decoration: none;
+}
+
+.nav-link:hover, .nav-link:focus {
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown-menu a {
+    color: black!important;
+    width: 100%!important;
+    font-size: 0.9rem!important;
+}
+/* END DROPDOWN MENUS */
