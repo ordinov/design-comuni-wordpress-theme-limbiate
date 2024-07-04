@@ -73,6 +73,7 @@
 }
 
 @media (max-width: 768px) {
+
     /* .events-bar-main .events-bar-list {
         flex-direction: column;
     } */
@@ -85,16 +86,16 @@
     margin-bottom: 20px;
 }
 
-#footer-widget-area > div.hr {
+#footer-widget-area>div.hr {
     padding: 0px 10px;
 }
 
-#footer-widget-area > div.footer-items-wrapper div.widget {
+#footer-widget-area>div.footer-items-wrapper div.widget {
     margin-bottom: 40px;
 }
 
 @media (max-width: 768px) {
-    #footer-widget-area > div.footer-items-wrapper div.widget {
+    #footer-widget-area>div.footer-items-wrapper div.widget {
         margin-bottom: 0px;
     }
 }
@@ -113,14 +114,15 @@
     text-align: right;
 }
 
-.link-to-calendar > a {
-    background: inherit!important;
-    color: inherit!important;
+.link-to-calendar>a {
+    background: inherit !important;
+    color: inherit !important;
 }
 
-.link-to-calendar:hover, .link-to-calendar:focus {
-    background: #642231!important;
-    color: white!important;
+.link-to-calendar:hover,
+.link-to-calendar:focus {
+    background: #642231 !important;
+    color: white !important;
 }
 
 #limbiate-calendar-container {
@@ -131,7 +133,8 @@
     text-transform: uppercase;
 }
 
-a.fc-col-header-cell-cushion, a.fc-daygrid-day-number  {
+a.fc-col-header-cell-cushion,
+a.fc-daygrid-day-number {
     color: black;
 }
 
@@ -140,9 +143,8 @@ a.fc-col-header-cell-cushion, a.fc-daygrid-day-number  {
 }
 
 .fc-h-event .limbiate-cal-date,
-.fc-h-event .limbiate-cal-title
- {
-    text-align:center;
+.fc-h-event .limbiate-cal-title {
+    text-align: center;
 }
 
 .fc-h-event .limbiate-cal-title {
@@ -151,3 +153,25 @@ a.fc-col-header-cell-cushion, a.fc-daygrid-day-number  {
 }
 
 /* END CALENDAR */
+
+
+/* START STICKY HEADER */
+
+@media (max-width: 995) {
+    #sticky-header {
+        display: none !important;
+    }
+}
+
+.sticky-header {
+    position: sticky;
+    top: 0px;
+    z-index: 1000;
+    background-color: #fff; /* Adjust as needed */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
+}
+
+.sticky-hidden {
+    display: none!important;
+    top: -100px;
+}
