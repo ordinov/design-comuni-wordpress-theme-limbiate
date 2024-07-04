@@ -58,6 +58,18 @@ get_header();
 				<div class="row g-4">
 					<?php
 					foreach ($allPosts as $postEvent) {
+						$eventColor = '#707070';
+						$arguments = wp_get_post_terms($postEvent->ID, 'argomenti', array('fields' => 'names'));
+						$arguments = array_map('strtolower', $arguments);
+
+						// SHOW ONLY SERALE, FAMILY, OFF
+						if (!in_array('serale', $arguments) &&
+						!in_array('family', $arguments) && 
+						!in_array('off', $arguments)) continue;
+
+						if (in_array('serale', $arguments)) $eventColor = '#33573F';
+						if (in_array('family', $arguments)) $eventColor = '#ED6D11';
+						if (in_array('off', $arguments)) $eventColor = '#5B232B';
 						$url = get_the_permalink($postEvent);
 						$prefix = '_dci_evento_';
 						$img = get_the_post_thumbnail($postEvent);
@@ -73,7 +85,7 @@ get_header();
 											<figure class="img-wrapper">
 												<?php dci_get_img($img, 'rounded-top img-fluid'); ?>
 											</figure>
-											<div class="card-calendar d-flex flex-column justify-content-center">
+											<div class="card-calendar d-flex flex-column justify-content-center" style="background: <?php echo $eventColor; ?>; color: white;">
 												<span class="card-date"><?php echo $arrdata[0]; ?></span>
 												<span class="card-day"><?php echo $arrdata[1] . '<br>' . $arrdata[2]; ?></span>
 											</div>
