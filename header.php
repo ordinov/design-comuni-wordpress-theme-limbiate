@@ -95,11 +95,7 @@ $current_group = dci_get_current_group();
                       ?>
                     </nav> -->
                     <div class="it-search-wrapper" style="">
-                      <span class="d-none d-md-block" style="color: white;
-    margin-right: 14px;
-    position: absolute;
-    margin-left: -36px;
-    margin-top: -47px;">Cerca</span>
+                      <span class="d-none d-md-block" style="color: white; margin-right: 14px; position: absolute; margin-left: -36px; margin-top: -47px;">Cerca</span>
                       <button class="search-link rounded-icon" style="margin-top: -58px;" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" aria-label="Cerca nel sito">
                         <svg class="icon">
                           <use href="#it-search"></use>
