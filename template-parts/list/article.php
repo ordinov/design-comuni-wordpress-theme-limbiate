@@ -17,9 +17,7 @@ if(!$excerpt)
     <div class="card-body">
         <div class="card-article-img"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
             <div class="date">
-                <span class="year"><?php echo date_i18n("Y", strtotime($post->post_date)); ?></span>
-                <span class="day"><?php echo date_i18n("d", strtotime($post->post_date)); ?></span>
-                <span class="month"><?php echo date_i18n("M", strtotime($post->post_date)); ?></span>
+                <span class="day"><?php echo date_i18n("d", strtotime($post->post_date)); ?>/</span><span class="month"><?php echo date_i18n("m", strtotime($post->post_date)); ?>/</span><span class="year"><?php echo date_i18n("Y", strtotime($post->post_date)); ?></span>
             </div>
         </div>
         <div class="card-article-content">

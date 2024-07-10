@@ -167,12 +167,14 @@ a.fc-daygrid-day-number {
     position: sticky;
     top: 0px;
     z-index: 1000;
-    background-color: #fff; /* Adjust as needed */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
+    background-color: #fff;
+    /* Adjust as needed */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Optional: adds a subtle shadow */
 }
 
 .sticky-hidden {
-    display: none!important;
+    display: none !important;
     top: -100px;
 }
 
@@ -198,7 +200,7 @@ a.fc-daygrid-day-number {
     min-width: 10rem;
     padding: 0.5rem 0;
     margin: 0;
-    margin-top: 0px!important;
+    margin-top: 0px !important;
     font-size: 1rem;
     color: #212529;
     text-align: left;
@@ -220,13 +222,42 @@ a.fc-daygrid-day-number {
     text-decoration: none;
 }
 
-.nav-link:hover, .nav-link:focus {
+.nav-link:hover,
+.nav-link:focus {
     text-decoration: none;
 }
 
 .dropdown:hover .dropdown-menu a {
-    color: black!important;
-    width: 100%!important;
-    font-size: 0.9rem!important;
+    color: black !important;
+    width: 100% !important;
+    font-size: 0.9rem !important;
 }
+
 /* END DROPDOWN MENUS */
+
+
+/* START ALLEGATI IN POST */
+
+#allegati-divider {
+    height: 26px;
+    display: block;
+    float: none;
+    clear: both;
+}
+
+/* END ALLEGATI IN POST */
+
+
+.card-article-img {
+    height: 200px !important;
+}
+
+.card-article-img .date {
+    background: white;
+    opacity: 0.7;
+    padding: 0px 10px;
+    text-align: right;
+    color: black;
+    font-size: 0.9rem;
+    font-weight: normal;
+}

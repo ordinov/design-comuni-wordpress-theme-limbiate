@@ -294,10 +294,11 @@ function limbiate_enqueue_admin_styles()
 }
 add_action('admin_enqueue_scripts', 'limbiate_enqueue_admin_styles');
 
-function limbiate_enqueue_scripts() {
-    wp_enqueue_script('fullcalendar', get_stylesheet_directory_uri() . '/assets/js/fullcalendar.min.js', array(), false, true);
-    wp_enqueue_script('fullcalendar-locale-it', get_stylesheet_directory_uri() . '/assets/js/fullcalendar-locale-it.js', array(), false, true);
-    wp_enqueue_script('limbiate-script', get_stylesheet_directory_uri() . '/limbiate.js', array(), false, true);
+function limbiate_enqueue_scripts()
+{
+	wp_enqueue_script('fullcalendar', get_stylesheet_directory_uri() . '/assets/js/fullcalendar.min.js', array(), false, true);
+	wp_enqueue_script('fullcalendar-locale-it', get_stylesheet_directory_uri() . '/assets/js/fullcalendar-locale-it.js', array(), false, true);
+	wp_enqueue_script('limbiate-script', get_stylesheet_directory_uri() . '/limbiate.js', array(), false, true);
 }
 
 add_action('wp_enqueue_scripts', 'limbiate_enqueue_scripts');
@@ -308,14 +309,25 @@ add_action('wp_enqueue_scripts', 'limbiate_enqueue_scripts');
 require get_template_directory() . '/zones-map/index.php';
 
 
-function add_thumbnail_support_for_evento() {
-    // Ensure the post type is registered
-    add_action('init', 'register_thumbnail_support');
+function add_thumbnail_support_for_evento()
+{
+	// Ensure the post type is registered
+	add_action('init', 'register_thumbnail_support');
 }
 
-function register_thumbnail_support() {
-    // Add thumbnail support to 'evento' post type
-    add_post_type_support('evento', 'thumbnail');
+function register_thumbnail_support()
+{
+	// Add thumbnail support to 'evento' post type
+	add_post_type_support('evento', 'thumbnail');
 }
 
 add_action('after_setup_theme', 'add_thumbnail_support_for_evento');
+
+
+
+// REMOVE POST META BOXES
+function remove_argomenti_metabox()
+{
+	remove_meta_box('argomentidiv', 'evento', 'normal'); // Author Metabox
+}
+add_action('admin_menu', 'remove_argomenti_metabox');
