@@ -18,26 +18,18 @@ get_header();
    while (have_posts()) :
       the_post();
       $user_can_view_post = dci_members_can_user_view_post(get_current_user_id(), $post->ID);
-
       $prefix = '_dci_evento_';
       $descrizione_breve = dci_get_meta("descrizione_breve", $prefix, $post->ID);
-      //dates
-      $start_timestamp = dci_get_meta("data_orario_inizio", $prefix, $post->ID);
-      $start_date = date_i18n('d F Y', date($start_timestamp));
-      $start_date_arr = explode('-', date_i18n('d-M-Y-H-i', date($start_timestamp)));
-      $end_timestamp = dci_get_meta("data_orario_fine", $prefix, $post->ID);
-      $end_date = date_i18n('d F Y', date($end_timestamp));
-      $end_date_arr = explode('-', date_i18n('d-M-Y-H-i', date($end_timestamp)));
+      // dates
+      $multiple_dates = dci_get_meta('date_multiple', $prefix, $post->ID);
       $descrizione = dci_get_wysiwyg_field("descrizione_completa", $prefix, $post->ID);
       $destinatari = dci_get_wysiwyg_field("a_chi_e_rivolto", $prefix, $post->ID);
-      //media
+      // media
       $gallery = dci_get_meta("gallery", $prefix, $post->ID);
       $video = dci_get_meta("video", $prefix, $post->ID);
       $trascrizione = dci_get_meta("trascrizione", $prefix, $post->ID);
       $persone = dci_get_meta("persone", $prefix, $post->ID);
       $luogo_evento = dci_get_meta("luogo_evento", $prefix, $post->ID);
-      //$luogo_evento_id = dci_get_meta("luogo_evento", $prefix, $post->ID);
-      // if ($luogo_evento_id) $luogo_evento = get_post($luogo_evento_id);
       $costi = dci_get_meta('costi');
       $allegati = dci_get_meta("allegati", $prefix, $post->ID);
       $punti_contatto = dci_get_meta("punti_contatto", $prefix, $post->ID);
@@ -57,13 +49,12 @@ get_header();
          <div class="row">
             <div class="col-lg-8 px-lg-4 py-lg-2">
                <h1 data-audio><?php the_title(); ?></h1>
-               <?php if ($start_timestamp && $end_timestamp) { ?>
-                  <h2 class="h4 py-2" data-audio>dal <?php echo $start_date; ?> al <?php echo $end_date; ?></h2>
+               <?php if (!empty($multiple_dates)) { ?>
+                  <h2 class="h4 py-2" data-audio>dal <?php echo date_i18n('d F Y', strtotime($multiple_dates[0]['_dci_evento_date_multiple_time_date'])); ?> al <?php echo date_i18n('d F Y', strtotime(end($multiple_dates)['_dci_evento_date_multiple_time_date'])); ?></h2>
                <?php } ?>
                <p data-audio>
                   <?php echo $descrizione_breve; ?>
                </p>
-               <h4><?php echo $start_date; ?></h4>
             </div>
             <div class="col-lg-3 offset-lg-1">
                <?php
@@ -116,7 +107,7 @@ get_header();
                                                    </a>
                                                 </li>
                                              <?php } ?>
-                                             <?php if ($start_timestamp || $end_timestamp) { ?>
+                                             <?php if (!empty($multiple_dates)) { ?>
                                                 <li class="nav-item">
                                                    <a class="nav-link" href="#date-e-orari">
                                                       <span class="title-medium">Date e orari</span>
@@ -137,10 +128,7 @@ get_header();
                                                    </a>
                                                 </li>
                                              <?php } ?>
-                                             <?php
-                                             // if( is_array($punti_contatto) && count($punti_contatto) ) { 
-                                             if (!empty($punti_contatto)) {
-                                             ?>
+                                             <?php if (!empty($punti_contatto)) { ?>
                                                 <li class="nav-item">
                                                    <a class="nav-link" href="#contatti">
                                                       <span class="title-medium">Contatti</span>
@@ -209,51 +197,38 @@ get_header();
 
                <?php if ($luogo_evento) { ?>
                   <article id="luogo" class="it-page-section mb-5">
-                     <h2 class="mb-3">Luogo <svg class="icon" >
-                     <use xlink:href="#it-pin" aria-hidden="true"></use>
-                 </svg></h2>
+                     <h2 class="mb-3">Luogo <svg class="icon">
+                        <use xlink:href="#it-pin" aria-hidden="true"></use>
+                     </svg></h2>
                      <?php
-                        // $luogo = $luogo_evento;
-                        // get_template_part("template-parts/single/luogo");
-                        // echo '<a href="http://maps.google.com/maps?q=' . $luogo_evento . '" target="_blank"><p class="evento-luogo">' . nl2br($luogo_evento) . '</p></a>';
                         echo '<p class="evento-luogo">' . nl2br($luogo_evento) . '</p>';
                      ?>
                   </article>
                <?php } ?>
 
-               <?php if ($start_timestamp || $end_timestamp) { ?>
+               <?php if (!empty($multiple_dates)) { ?>
                   <article id="date-e-orari" class="it-page-section mb-5">
                      <h2 class="mb-3">Date e orari</h2>
                      <div class="point-list-wrapper my-4">
-                        <?php if ($start_timestamp) { ?>
+                        <?php foreach ($multiple_dates as $date) {
+                           $event_date = date_i18n('d-M-Y', strtotime($date['_dci_evento_date_multiple_time_date']));
+                           $event_start_time = $date['_dci_evento_date_multiple_time_inizio'];
+                           $event_end_time = $date['_dci_evento_date_multiple_time_fine'];
+                        ?>
                            <div class="point-list">
                               <h3 class="point-list-aside point-list-primary fw-normal">
-                                 <span class="point-date font-monospace"><?php echo $start_date_arr[0]; ?></span>
-                                 <span class="point-month font-monospace"><?php echo $start_date_arr[1]; ?></span>
+                                 <span class="point-date font-monospace"><?php echo date_i18n('d', strtotime($date['_dci_evento_date_multiple_time_date'])); ?></span>
+                                 <span class="point-month font-monospace"><?php echo date_i18n('M', strtotime($date['_dci_evento_date_multiple_time_date'])); ?></span>
                               </h3>
                               <div class="point-list-content">
                                  <div class="card card-teaser shadow rounded">
                                     <div class="card-body">
                                        <h3 class="card-title h5 m-0">
-                                          <?php echo $start_date_arr[3] . ':' . $start_date_arr[4]; ?> - Inizio evento
+                                          Orario <?php echo $event_start_time; ?> - <?php echo $event_end_time; ?>
                                        </h3>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        <?php } ?>
-                        <?php if ($end_timestamp) { ?>
-                           <div class="point-list">
-                              <h3 class="point-list-aside point-list-primary fw-normal">
-                                 <div class="point-date font-monospace"><?php echo $end_date_arr[0]; ?></div>
-                                 <div class="point-month font-monospace"><?php echo $end_date_arr[1]; ?></div>
-                              </h3>
-                              <div class="point-list-content">
-                                 <div class="card card-teaser shadow rounded">
-                                    <div class="card-body">
-                                       <h3 class="card-title h5 m-0">
-                                          <?php echo $end_date_arr[3]; ?>:<?php echo $end_date_arr[4]; ?> - Fine evento
-                                       </h3>
+                                       <?php if (!empty($date['date_multiple_description'])) { ?>
+                                          <p><?php echo $date['date_multiple_description']; ?></p>
+                                       <?php } ?>
                                     </div>
                                  </div>
                               </div>
@@ -261,9 +236,8 @@ get_header();
                         <?php } ?>
                      </div>
                      <?php
-                     $data_inizio = date_i18n("Ymd\THi00", date($start_timestamp));
-                     $data_fine = $end_timestamp ? date_i18n("Ymd\THi00", date($end_timestamp)) : date_i18n("Ymd\THi00", date($start_timestamp));
-                     //   $luogo = $luogo_evento->post_title;
+                     $data_inizio = date_i18n("Ymd\THi00", strtotime($multiple_dates[0]['_dci_evento_date_multiple_time_date'] . ' ' . $multiple_dates[0]['_dci_evento_date_multiple_time_inizio']));
+                     $data_fine = date_i18n("Ymd\THi00", strtotime(end($multiple_dates)['_dci_evento_date_multiple_time_date'] . ' ' . end($multiple_dates)['_dci_evento_date_multiple_time_fine']));
                      $luogo = $luogo_evento;
                      ?>
                      <div class="mt-5">
@@ -331,14 +305,10 @@ get_header();
 
                <article id="contatti" class="it-page-section mb-5">
                   <?php
-                  // if( is_array($punti_contatto) && count($punti_contatto) ) { 
-                     if (!empty($punti_contatto)) {
+                  if (!empty($punti_contatto)) {
                   ?>
                      <h2 class="mb-3">Contatti</h2>
-                     <?php 
-                     // foreach ($punti_contatto as $pc_id) {
-                        // get_template_part('template-parts/single/punto-contatto');
-                     // } 
+                     <?php
                         echo '<p class="punti-contatto-evento">' . nl2br($punti_contatto) . '</p>';
                      ?>
                   <?php } ?>
@@ -396,8 +366,6 @@ get_header();
       </div>
       <?php get_template_part("template-parts/common/valuta-servizio"); ?>
 
-      <!-- <?php get_template_part('template-parts/single/more-posts', 'carousel'); ?> -->
-
    <?php
    endwhile; // End of the loop.
    ?>
@@ -405,3 +373,4 @@ get_header();
 
 <?php
 get_footer();
+?>

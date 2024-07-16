@@ -316,13 +316,6 @@ function dci_add_eventi_metaboxes()
     ));
 
     $cmb_date_multiple->add_group_field($group_field_id, array(
-        'name'       => __('Titolo', 'design_comuni_italia'),
-        'description' => __('Es: il tipo di biglietto ("Intero","Ridotto"...)', 'design_comuni_italia'),
-        'id'         => 'titolo_costo',
-        'type'       => 'text',
-    ));
-
-    $cmb_date_multiple->add_group_field($group_field_id, array(
         'name'       => __('Descrizione', 'design_comuni_italia'),
         'id'         => 'date_multiple_description',
         'type'       => 'textarea',
