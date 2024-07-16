@@ -276,7 +276,7 @@ function dci_add_eventi_metaboxes()
     // DATE MULTIPLE
     $cmb_date_multiple = new_cmb2_box(array(
         'id'           => $prefix . 'box_date_multiple',
-        'title'        => __('Date', 'design_comuni_italia'),
+        'title'        => __('Date evento', 'design_comuni_italia'),
         'object_types' => array('evento'),
         'context'      => 'normal',
         'priority'     => 'high',
