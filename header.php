@@ -25,9 +25,9 @@ $current_group = dci_get_current_group();
 <?php get_template_part("template-parts/common/skiplink"); ?>
 
 <!-- Sticky Header -->
-  <header class="it-header-wrapper sticky-header sticky-hidden" id="sticky-header" data-bs-target="#header-nav-wrapper">
+  <header class="it-header-wrapper sticky-header sticky-hidden" id="sticky-header" data-bs-target="#header-nav-wrapper-sticky">
     <div class="it-nav-wrapper">
-      <div class="it-header-navbar-wrapper" id="header-nav-wrapper">
+      <div class="it-header-navbar-wrapper" id="header-nav-wrapper-sticky">
         <div class="container">
           <div class="row">
             <div class="col-12">
@@ -37,7 +37,7 @@ $current_group = dci_get_current_group();
                     <use href="#it-burger"></use>
                   </svg>
                 </button> -->
-                <div class="navbar-collapsable-sticky">
+                <div class="navbar-collapsable-sticky" id="nav4">
                   <!-- <div class="overlay" style="display: none"></div>
                   <div class="close-div">
                     <button class="btn close-menu" type="button">
