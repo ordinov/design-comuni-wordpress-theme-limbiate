@@ -32,11 +32,11 @@ $current_group = dci_get_current_group();
           <div class="row">
             <div class="col-12">
               <div class="navbar navbar-expand-lg has-megamenu">
-                <!-- <button class="custom-navbar-toggler" type="button" aria-controls="nav4" aria-expanded="false" aria-label="Mostra/Nascondi la navigazione" data-bs-target="#nav4" data-bs-toggle="navbarcollapsible">
+                <button class="custom-navbar-toggler" type="button" aria-controls="nav4" aria-expanded="false" aria-label="Mostra/Nascondi la navigazione" data-bs-target="#nav4" data-bs-toggle="navbarcollapsible">
                   <svg class="icon">
                     <use href="#it-burger"></use>
                   </svg>
-                </button> -->
+                </button>
                 <div class="navbar-collapsable-sticky" id="nav4">
                   <div class="overlay" style="display: none"></div>
                   <div class="close-div">
