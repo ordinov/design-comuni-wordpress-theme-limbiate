@@ -45,6 +45,14 @@ get_header();
         <div class="container ">
             <article class="article-wrapper" data-audio>
 
+                <div class="row">
+                    <div class="col-lg-12">
+                        <?php
+                        the_content();
+                        ?>
+                    </div>
+                </div>
+
                 <?php if (is_array($allegati) && count($allegati)) { ?>
                     <article class="it-page-section anchor-offset mt-5">
                         <h4 id="allegati">Allegati</h4>
@@ -70,14 +78,7 @@ get_header();
                     </article>
                     <div id="allegati-divider"></div>
                 <?php } ?>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <?php
-                        the_content();
-                        ?>
-                    </div>
-                </div>
-
+                
                 <div class="row">
                     <div class="col-lg-12">
                         <?php get_template_part("template-parts/single/bottom"); ?>
