@@ -282,7 +282,7 @@ function dci_add_eventi_metaboxes()
         'priority'     => 'high',
     ));
 
-    // repeater Costi
+    // repeater Date multiple
     $group_field_id = $cmb_date_multiple->add_field(array(
         'id'          => $prefix . 'date_multiple',
         'type'        => 'group',
@@ -294,21 +294,21 @@ function dci_add_eventi_metaboxes()
         ),
     ));
 
-    $cmb_date_multiple->add_field(array(
+    $cmb_date_multiple->add_group_field($group_field_id, array(
         'id' => $prefix . 'date_multiple_time_date',
         'name'    => __('Data', 'design_comuni_italia'),
         'type'    => 'text_date',
         'date_format' => 'd-m-Y',
     ));
     
-    $cmb_date_multiple->add_field(array(
+    $cmb_date_multiple->add_group_field($group_field_id, array(
         'id' => $prefix . 'date_multiple_time_inizio',
         'name'    => __('Orario di inizio', 'design_comuni_italia'),
         'type'    => 'text_time',
         'time_format' => 'H:i', // Set to 24hr format
     ));
 
-    $cmb_date_multiple->add_field(array(
+    $cmb_date_multiple->add_group_field($group_field_id, array(
         'id' => $prefix . 'date_multiple_time_fine',
         'name'    => __('Orario di fine', 'design_comuni_italia'),
         'type'    => 'text_time',
