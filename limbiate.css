@@ -178,6 +178,37 @@ a.fc-daygrid-day-number {
     top: -100px;
 }
 
+.navbar .navbar-collapsable-sticky {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    display: none;
+    width: 100%;
+}
+
+@media (min-width: 992px) {
+    .navbar .navbar-collapsable-sticky {
+        position: relative;
+        top: auto;
+        right: auto;
+        left: auto;
+        bottom: auto;
+        z-index: auto;
+        background: 0 0;
+        display: block !important;
+        transition: none;
+    }
+}
+
+@media (min-width: 992px) {
+    .has-megamenu .navbar-collapsable-sticky {
+        width: 100%;
+    }
+}
+
 /* END STICKY HEADER */
 
 /* START DROPDOWN MENUS */
