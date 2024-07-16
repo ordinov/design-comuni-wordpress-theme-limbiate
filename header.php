@@ -32,13 +32,13 @@ $current_group = dci_get_current_group();
           <div class="row">
             <div class="col-12">
               <div class="navbar navbar-expand-lg has-megamenu">
-                <button class="custom-navbar-toggler" type="button" aria-controls="nav4" aria-expanded="false" aria-label="Mostra/Nascondi la navigazione" data-bs-target="#nav4" data-bs-toggle="navbarcollapsible">
+                <!-- <button class="custom-navbar-toggler" type="button" aria-controls="nav4" aria-expanded="false" aria-label="Mostra/Nascondi la navigazione" data-bs-target="#nav4" data-bs-toggle="navbarcollapsible">
                   <svg class="icon">
                     <use href="#it-burger"></use>
                   </svg>
-                </button>
-                <div class="navbar-collapsable-sticky" id="nav4">
-                  <div class="overlay" style="display: none"></div>
+                </button> -->
+                <div class="navbar-collapsable-sticky">
+                  <!-- <div class="overlay" style="display: none"></div>
                   <div class="close-div">
                     <button class="btn close-menu" type="button">
                       <span class="visually-hidden">Nascondi la navigazione</span>
@@ -46,7 +46,7 @@ $current_group = dci_get_current_group();
                         <use href="#it-close-big"></use>
                       </svg>
                     </button>
-                  </div>
+                  </div> -->
                   <div class="menu-wrapper">
                     <a href="<?php echo home_url(); ?>" aria-label="Vai alla homepage" class="logo-hamburger">
                       <?php get_template_part("template-parts/common/logo-mobile"); ?>
