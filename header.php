@@ -35,50 +35,35 @@ $current_group = dci_get_current_group();
           <div class="row">
             <div class="col-12">
               <div class="navbar navbar-expand-lg has-megamenu">
-                <button class="custom-navbar-toggler" type="button" aria-controls="nav4" aria-expanded="false" aria-label="Mostra/Nascondi la navigazione" data-bs-target="#nav4" data-bs-toggle="navbarcollapsible-sticky">
-                  <svg class="icon">
-                    <use href="#it-burger"></use>
-                  </svg>
-                </button>
-                <div class="navbar-collapsable-sticky" id="nav4">
-                  <div class="overlay" style="display: none"></div>
-                  <div class="close-div">
-                    <button class="btn close-menu" type="button">
-                      <span class="visually-hidden">Nascondi la navigazione</span>
-                      <svg class="icon">
-                        <use href="#it-close-big"></use>
-                      </svg>
-                    </button>
-                  </div>
-                  <div class="menu-wrapper">
-                    <a href="<?php echo home_url(); ?>" aria-label="Vai alla homepage" class="logo-hamburger">
-                      <?php get_template_part("template-parts/common/logo-mobile"); ?>
-                      <div class="it-brand-text">
-                        <div class="it-brand-title"><?php echo dci_get_option("nome_comune"); ?></div>
-                      </div>
+                <div class="menu-wrapper">
+                  <a href="<?php echo home_url(); ?>" aria-label="Vai alla homepage" class="logo-hamburger">
+                    <?php get_template_part("template-parts/common/logo-mobile"); ?>
+                    <div class="it-brand-text">
+                      <div class="it-brand-title"><?php echo dci_get_option("nome_comune"); ?></div>
+                    </div>
+                  </a>
+                  <nav aria-label="Principale">
+                    <a href="<?php echo home_url(); ?>" <?php if (!is_front_page()) echo 'title="Vai alla Homepage"'; ?> style="float:left; margin-top: 14px;">
+                      <?php get_template_part("template-parts/common/logo"); ?>
                     </a>
-                    <nav aria-label="Principale">
-                      <a href="<?php echo home_url(); ?>" <?php if (!is_front_page()) echo 'title="Vai alla Homepage"'; ?> style="float:left; margin-top: 14px;">
-                        <?php get_template_part("template-parts/common/logo"); ?>
-                      </a>
-                      <?php
-                      $location = "menu-header-main";
-                      if (has_nav_menu($location)) {
-                        wp_nav_menu(array(
-                          "theme_location" => $location,
-                          "depth" => 0,
-                          "menu_class" => "navbar-nav",
-                          'items_wrap' => '<ul class="%2$s" id="%1$s" data-element="main-navigation">%3$s</ul>',
-                          "container" => "",
-                          'list_item_class'  => 'nav-item',
-                          'link_class'   => 'nav-link',
-                          'current_group' => $current_group,
-                          'walker' => new Main_Menu_Walker()
-                        ));
-                      }
-                      ?>
-                    </nav>
-                    <!-- <nav aria-label="Secondaria">
+                    <?php
+                    $location = "menu-header-main";
+                    if (has_nav_menu($location)) {
+                      wp_nav_menu(array(
+                        "theme_location" => $location,
+                        "depth" => 0,
+                        "menu_class" => "navbar-nav",
+                        'items_wrap' => '<ul class="%2$s" id="%1$s" data-element="main-navigation">%3$s</ul>',
+                        "container" => "",
+                        'list_item_class'  => 'nav-item',
+                        'link_class'   => 'nav-link',
+                        'current_group' => $current_group,
+                        'walker' => new Main_Menu_Walker()
+                      ));
+                    }
+                    ?>
+                  </nav>
+                  <!-- <nav aria-label="Secondaria">
                       <?php
                       $location = "menu-header-right";
                       if (has_nav_menu($location)) {
@@ -94,14 +79,13 @@ $current_group = dci_get_current_group();
                       }
                       ?>
                     </nav> -->
-                    <div class="it-search-wrapper" style="">
-                      <span class="d-none d-md-block" style="color: white; margin-right: 14px; position: absolute; margin-left: -36px; margin-top: -47px;">Cerca</span>
-                      <button class="search-link rounded-icon" style="margin-top: -58px;" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" aria-label="Cerca nel sito">
-                        <svg class="icon">
-                          <use href="#it-search"></use>
-                        </svg>
-                      </button>
-                    </div>
+                  <div class="it-search-wrapper" style="">
+                    <span class="d-none d-md-block" style="color: white; margin-right: 14px; position: absolute; margin-left: -36px; margin-top: -47px;">Cerca</span>
+                    <button class="search-link rounded-icon" style="margin-top: -58px;" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" aria-label="Cerca nel sito">
+                      <svg class="icon">
+                        <use href="#it-search"></use>
+                      </svg>
+                    </button>
                   </div>
                 </div>
               </div>
