@@ -209,6 +209,43 @@ a.fc-daygrid-day-number {
     }
 }
 
+.navbar .navbar-collapsable-sticky .menu-wrapper {
+    background: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 48px;
+    left: 0;
+    pointer-events: all;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: all .2s cubic-bezier(.29, .85, .5, .99);
+    z-index: 5;
+}
+
+@media (min-width: 992px) {
+    .navbar .navbar-collapsable-sticky .menu-wrapper {
+        position: inherit;
+        top: auto;
+        bottom: auto;
+        right: auto;
+        left: auto;
+        overflow-y: visible;
+        transform: none;
+        transition: none;
+        background: #007a52;
+    }
+}
+
+@media (min-width: 992px) {
+    .it-header-wrapper .navbar-collapsable-sticky .menu-wrapper {
+        background: 0 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+}
+
 /* END STICKY HEADER */
 
 /* START DROPDOWN MENUS */
