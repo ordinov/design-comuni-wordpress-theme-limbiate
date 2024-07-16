@@ -37,7 +37,7 @@ $current_group = dci_get_current_group();
                     <use href="#it-burger"></use>
                   </svg>
                 </button> -->
-                <div class="navbar-collapsable-sticky">
+                <div class="navbar-collapsable">
                   <!-- <div class="overlay" style="display: none"></div>
                   <div class="close-div">
                     <button class="btn close-menu" type="button">
