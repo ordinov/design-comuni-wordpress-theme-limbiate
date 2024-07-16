@@ -74,8 +74,6 @@ get_header();
          </div>
       </div>
 
-      <?php get_template_part('template-parts/single/image-large'); ?>
-
       <div class="container">
          <div class="row border-top row-column-border row-column-menu-left border-light">
             <aside class="col-lg-4">
@@ -177,7 +175,12 @@ get_header();
                </div>
             </aside>
 
-            <section class="col-lg-8 it-page-sections-container border-light">
+            <section class="col-lg-8 it-page-sections-container border-light pt-0">
+               
+               <div class="pb-4">
+                  <?php get_template_part('template-parts/single/image-small'); ?>
+               </div>
+
                <article id="cos-e" class="it-page-section mb-5" data-audio>
                   <h2 class="mb-3">Cos'è</h2>
                   <div class="richtext-wrapper font-serif">
