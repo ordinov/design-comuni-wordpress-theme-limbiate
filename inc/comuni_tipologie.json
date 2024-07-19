@@ -184,6 +184,7 @@
         },
         "page": {
             "name" : "page",
+            "prefix" : null,
             "singular_name" : "Pagina",
             "plural_name" : "Pagine"
         }

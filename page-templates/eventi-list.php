@@ -7,6 +7,7 @@
  */
 global $post;
 get_header();
+$prefix = '_dci_evento_';
 
 ?>
 <main>
