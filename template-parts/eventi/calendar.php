@@ -18,7 +18,7 @@ if ($events_query->have_posts()) {
     while ($events_query->have_posts()) {
         $events_query->the_post();
 
-        $multipleDates = dci_get_meta('date_multiple', $prefix, $post->ID);
+        $multipleDates = dci_get_meta('date_multiple', $prefix, get_the_ID());
         if (!empty($multipleDates)) {
             foreach ($multipleDates as $singleDate) {
                 $date =  $singleDate['_dci_evento_date_multiple_time_date'];
