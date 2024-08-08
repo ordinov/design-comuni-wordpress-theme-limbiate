@@ -8,6 +8,9 @@
  * @package Design_Comuni_Italia
  */
 
+// var dumper
+require get_template_directory() . '/vendor/autoload.php';
+
 /**
  * Funzionalità Trasversali
  */
