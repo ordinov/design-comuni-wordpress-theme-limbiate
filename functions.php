@@ -12,6 +12,11 @@
 require get_template_directory() . '/vendor/autoload.php';
 
 /**
+ * Lavori Pubblici
+ */
+require get_template_directory() . '/lavori-pubblici/add-lavori.php';
+
+/**
  * Funzionalità Trasversali
  */
 require get_template_directory() . '/inc/funzionalita_trasversali.php';
