@@ -53,7 +53,7 @@ function register_lavori_pubblici_post_type()
         'public'             => true,
         'publicly_queryable' => true,
         'show_ui'            => true,
-        'show_in_menu'       => str_contains(get_site_url(), 'admin.'),
+        'show_in_menu'       => str_contains(get_site_url(), 'admin.') || str_contains(get_site_url(), 'lavori.'),
         'query_var'          => true,
         'rewrite'            => array('slug' => 'lavori-pubblici'),
         'capability_type'    => 'post',
