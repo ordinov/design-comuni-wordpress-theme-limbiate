@@ -25,6 +25,7 @@ get_header();
         $breve_descrizione = get_post_meta(get_the_ID(), 'breve_descrizione', true);
         $tipologia_lavori = get_post_meta(get_the_ID(), 'tipologia_lavori', true);
         $html_content = get_the_content(get_the_ID());
+        $featured_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
     ?>
         <div class="container px-4 my-4" id="main-container">
             <div class="row">
@@ -37,7 +38,6 @@ get_header();
                     <h1 data-audio><?php the_title(); ?></h1>
                     <p data-audio>
                         <?php echo wp_kses_post($breve_descrizione); ?>
-                        <?php echo wp_kses_post($html_content); ?>
                     </p>
                 </div>
                 <div class="col-lg-3 offset-lg-1">
@@ -54,33 +54,49 @@ get_header();
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="lavori-pubblici-container">
-                            <div class="gallery-column">
-                                <div class="gallery-grid">
-                                    <?php
-                                    if ($gallery_images) {
-                                        $image_ids = explode(',', $gallery_images);
-                                        foreach ($image_ids as $image_id) {
-                                            $image_url = wp_get_attachment_image_src($image_id, 'large');
-                                            echo '<div class="gallery-item">';
-                                            echo '<img src="' . esc_url($image_url[0]) . '" alt="' . esc_attr(get_post_meta($image_id, '_wp_attachment_image_alt', true)) . '">';
-                                            echo '</div>';
-                                        }
+                            <div class="gallery-grid" id="masonry-grid">
+                                <?php
+                                if ($featured_image) {
+                                    echo '<div class="gallery-item">';
+                                    echo '<img src="' . esc_url($featured_image) . '">';
+                                    echo '</div>';
+                                }
+                                if ($gallery_images) {
+                                    $image_ids = explode(',', $gallery_images);
+                                    foreach ($image_ids as $image_id) {
+                                        $image_url = wp_get_attachment_image_src($image_id, 'large');
+                                        echo '<div class="gallery-item">';
+                                        echo '<img src="' . esc_url($image_url[0]) . '" alt="' . esc_attr(get_post_meta($image_id, '_wp_attachment_image_alt', true)) . '">';
+                                        echo '</div>';
                                     }
-                                    ?>
-                                </div>
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="content-column">
                             <h4><?php _e('Dettagli:', 'textdomain'); ?></h4>
-                            <br>
-                            <p><strong><?php _e('Anno di realizzazione:', 'textdomain'); ?></strong> <?php echo esc_html($data_inizio_lavori); ?></p>
-                            <p><strong><?php _e('Location:', 'textdomain'); ?></strong> <?php echo esc_html($indirizzo_esatto); ?></p>
-                            <p><strong><?php _e('Tipologia Lavori:', 'textdomain'); ?></strong> <?php echo esc_html($tipologia_lavori); ?></p>
-                            <p><strong><?php _e('Importo Appalto:', 'textdomain'); ?></strong> <?php echo esc_html($importo_appalto); ?></p>
-                            <p><strong><?php _e('Origine del Finanziamento:', 'textdomain'); ?></strong> <?php echo esc_html($origine_finanziamento); ?></p>
-                            <p><strong><?php _e('Quartiere:', 'textdomain'); ?></strong> <?php echo esc_html($quartiere); ?></p>
+                            <hr>
+                            <?php if (!empty($data_inizio_lavori)) { ?>
+                                <p><strong><?php _e('Anno di realizzazione:', 'textdomain'); ?></strong> <?php echo esc_html($data_inizio_lavori); ?></p>
+                            <?php } ?>
+                            <?php if (!empty($indirizzo_esatto)) { ?>
+                                <p><strong><?php _e('Location:', 'textdomain'); ?></strong> <?php echo esc_html($indirizzo_esatto); ?></p>
+                            <?php } ?>
+                            <?php if (!empty($tipologia_lavori)) { ?>
+                                <p><strong><?php _e('Tipologia Lavori:', 'textdomain'); ?></strong> <?php echo esc_html($tipologia_lavori); ?></p>
+                            <?php } ?>
+                            <?php if (!empty($importo_appalto)) { ?>
+                                <p><strong><?php _e('Importo Appalto:', 'textdomain'); ?></strong> <?php echo esc_html($importo_appalto); ?></p>
+                            <?php } ?>
+                            <?php if (!empty($origine_finanziamento)) { ?>
+                                <p><strong><?php _e('Origine del Finanziamento:', 'textdomain'); ?></strong> <?php echo esc_html($origine_finanziamento); ?></p>
+                            <?php } ?>
+                            <?php if (!empty($quartiere)) { ?>
+                                <p><strong><?php _e('Quartiere:', 'textdomain'); ?></strong> <?php echo esc_html($quartiere); ?></p>
+                            <?php } ?>
+                            <hr>
                         </div>
                     </div>
                 </div>

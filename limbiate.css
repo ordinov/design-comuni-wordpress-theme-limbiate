@@ -247,7 +247,6 @@ a.fc-daygrid-day-number {
 
 /* END ALLEGATI IN POST */
 
-
 .card-article-img {
     height: 200px !important;
 }
@@ -261,3 +260,28 @@ a.fc-daygrid-day-number {
     font-size: 0.9rem;
     font-weight: normal;
 }
+
+/* START LAVORI GALLERY */
+
+/* Masonry Grid CSS */
+#masonry-grid {
+    column-count: 3; /* Number of columns */
+    column-gap: 15px; /* Gap between columns */
+}
+
+#masonry-grid .gallery-item {
+    break-inside: avoid; /* Prevent column breaks inside items */
+    width: 100%;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+#masonry-grid .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* Ensures the image covers the container */
+    border-radius: 5px;
+}
+
+/* END LAVORI GALLERY */
