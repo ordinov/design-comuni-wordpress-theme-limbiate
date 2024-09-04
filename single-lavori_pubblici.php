@@ -24,6 +24,7 @@ get_header();
         $data_inizio_lavori = get_post_meta(get_the_ID(), 'data_inizio_lavori', true);
         $breve_descrizione = get_post_meta(get_the_ID(), 'breve_descrizione', true);
         $tipologia_lavori = get_post_meta(get_the_ID(), 'tipologia_lavori', true);
+        $html_content = get_the_content(get_the_ID());
     ?>
         <div class="container px-4 my-4" id="main-container">
             <div class="row">
@@ -36,6 +37,7 @@ get_header();
                     <h1 data-audio><?php the_title(); ?></h1>
                     <p data-audio>
                         <?php echo wp_kses_post($breve_descrizione); ?>
+                        <?php echo wp_kses_post($html_content); ?>
                     </p>
                 </div>
                 <div class="col-lg-3 offset-lg-1">
