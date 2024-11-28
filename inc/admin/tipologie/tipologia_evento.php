@@ -181,7 +181,7 @@ function dci_add_eventi_metaboxes()
         'desc' => __('Introduzione e descrizione esaustiva dell\'evento', 'design_comuni_italia'),
         'type' => 'wysiwyg',
         'options' => array(
-            'media_buttons' => false,
+            'media_buttons' => true,
             'textarea_rows' => 10,
             'teeny' => false,
         ),
