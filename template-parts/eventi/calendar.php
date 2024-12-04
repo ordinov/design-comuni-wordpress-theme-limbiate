@@ -37,7 +37,7 @@ if ($events_query->have_posts()) {
 
                 // $eventColor = ($event_start_timestamp < $current_timestamp) ? 'grey' : $originalEventColor;
                 $events[] = [
-                    'title' => html_entity_decode(get_the_title(), ENT_QUOTES | ENT_HTML5, 'UTF-8') . $startDate,
+                    'title' => html_entity_decode(get_the_title(), ENT_QUOTES | ENT_HTML5, 'UTF-8'),
                     'start' => $startDate,
                     // 'end' => $endDate ?? null,
                     'url' => get_permalink(),
