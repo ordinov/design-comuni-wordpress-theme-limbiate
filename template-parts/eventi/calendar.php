@@ -37,7 +37,7 @@ if ($events_query->have_posts()) {
 
                 // $eventColor = ($event_start_timestamp < $current_timestamp) ? 'grey' : $originalEventColor;
                 $events[] = [
-                    'title' => html_entity_decode(get_the_title(), ENT_QUOTES | ENT_HTML5, 'UTF-8'),
+                    'title' => html_entity_decode(get_the_title(), ENT_QUOTES | ENT_HTML5, 'UTF-8') . $startDate,
                     'start' => $startDate,
                     // 'end' => $endDate ?? null,
                     'url' => get_permalink(),
@@ -65,7 +65,7 @@ if ($events_query->have_posts()) {
         var calendarEl = document.getElementById('limbiate-calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
             locale: 'it',
-            timeZone: 'Europe/Rome',
+            // timeZone: 'Europe/Rome',
             initialView: 'dayGridMonth',
             editable: false,
             events: <?php echo json_encode($events); ?>,
