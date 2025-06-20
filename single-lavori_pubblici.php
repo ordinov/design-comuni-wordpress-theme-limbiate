@@ -109,7 +109,12 @@ get_header();
                             <?php 
                             //if (!empty($quartiere)) { 
                             ?>
-                                <p><strong><?php _e('Quartiere:', 'textdomain'); ?></strong> <?php echo esc_html($quartiere); ?></p>
+                                <!-- <p><strong>
+                                    <?php // _e('Quartiere:', 'textdomain'); 
+                                // ?>
+                                </strong> 
+                                    <?php // echo esc_html($quartiere); ?>
+                                </p> -->
                             <?php 
                             // } 
                             ?>
