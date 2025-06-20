@@ -106,9 +106,13 @@ get_header();
                             <?php if (!empty($origine_finanziamento)) { ?>
                                 <p><strong><?php _e('Origine del Finanziamento:', 'textdomain'); ?></strong> <?php echo esc_html($origine_finanziamento); ?></p>
                             <?php } ?>
-                            <?php if (!empty($quartiere)) { ?>
+                            <?php 
+                            //if (!empty($quartiere)) { 
+                            ?>
                                 <p><strong><?php _e('Quartiere:', 'textdomain'); ?></strong> <?php echo esc_html($quartiere); ?></p>
-                            <?php } ?>
+                            <?php 
+                            // } 
+                            ?>
                             <hr>
                         </div>
                     </div>
