@@ -1,17 +1,28 @@
 <?php
 
-$args = array(
+$queryArgs = array(
     'post_type' => 'evento',
     'posts_per_page' => -1,
     'post_status' => 'publish',
     'meta_key' => '_dci_evento_date_multiple',
-    'meta_value_num' => array('compare' => 'EXISTS'),
     'orderby' => 'meta_value_num',
     'order' => 'ASC',
 );
 
+if (isset($args['filterTaxonomyId']) && !empty($args['filterTaxonomyId'])) {
+    $queryArgs['tax_query'] = array(
+        array(
+            'taxonomy' => 'argomenti',
+            'field'    => 'term_id',
+            'terms'    => $args['filterTaxonomyId'],
+        ),
+    );
+} else {
+    $queryArgs['meta_value_num'] = array('compare' => 'EXISTS');
+}
+
 $prefix = '_dci_evento_';
-$events_query = new WP_Query($args);
+$events_query = new WP_Query($queryArgs);
 
 $events = array();
 if ($events_query->have_posts()) {
