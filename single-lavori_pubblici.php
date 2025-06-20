@@ -21,6 +21,19 @@ get_header();
         $origine_finanziamento = get_post_meta(get_the_ID(), 'origine_finanziamento', true);
         $indirizzo_esatto = get_post_meta(get_the_ID(), 'indirizzo_esatto', true);
         $quartiere = get_post_meta(get_the_ID(), 'quartiere', true);
+        if (!empty($quartiere)) {
+            $quartiere_map = [
+                'centro' => 'Quartiere Centro',
+                'ceresolo' => 'Quartiere Ceresolo',
+                'fiori' => 'Villaggio dei Fiori',
+                'giovi' => 'Villaggio dei Giovi',
+                'sanfrancesco' => 'Quartiere San Francesco',
+                'sole' => 'Villaggio del Sole',
+            ];
+            if (array_key_exists($quartiere, $quartiere_map)) {
+                $quartiere = $quartiere_map[$quartiere];
+            }
+        }
         $data_inizio_lavori = get_post_meta(get_the_ID(), 'data_inizio_lavori', true);
         $breve_descrizione = get_post_meta(get_the_ID(), 'breve_descrizione', true);
         $tipologia_lavori = get_post_meta(get_the_ID(), 'tipologia_lavori', true);
