@@ -75,8 +75,21 @@ $prefix = '_dci_evento_';
 						$prefix = '_dci_evento_';
 						$img = get_the_post_thumbnail($postEvent);
 						$descrizione = dci_get_meta('descrizione_breve', $prefix, $postEvent->ID);
-						$timestamp = dci_get_meta('data_orario_inizio', $prefix, $postEvent->ID);
-						$arrdata = explode('-', date_i18n("j-F-Y", $timestamp));
+						$multipleDates = dci_get_meta('date_multiple', $prefix, $postEvent->ID);
+						if ($multipleDates && is_array($multipleDates) && count($multipleDates) > 0) {
+							$multipleDates = array_values($multipleDates);
+							$firstDate = $multipleDates[0];
+							if (isset($firstDate['_dci_evento_date_multiple_time_date'])) {
+								$timestamp = strtotime($firstDate['_dci_evento_date_multiple_time_date'] . '00:00');
+								$arrdata = explode('-', date_i18n("j-F-Y", $timestamp));
+							} else {
+								$timestamp = dci_get_meta('data_orario_inizio', $prefix, $postEvent->ID);
+								$arrdata = explode('-', date_i18n("j-F-Y", $timestamp));
+							}
+						} else {
+							$timestamp = dci_get_meta('data_orario_inizio', $prefix, $postEvent->ID);
+							$arrdata = explode('-', date_i18n("j-F-Y", $timestamp));
+						}
 					?>
 						<div class="col-lg-6 col-xl-4" onclick="window.location.href='<?php echo $url; ?>';" style="cursor:pointer" ;>
 							<div class="card-wrapper shadow-sm rounded border border-light">
