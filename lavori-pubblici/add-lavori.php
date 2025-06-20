@@ -208,10 +208,11 @@ function lavori_pubblici_details_callback($post)
         <p>
             <label for="quartiere"><?php _e('Quartiere', 'limbiate') ?></label>
             <select name="quartiere" id="quartiere">
-                <option value="sanfrancesco" <?php echo $actualQuartiere === 'sanfrancesco' ? 'selected' : ''; ?>>Quartiere San Francesco</option>
+                <option value="centro" <?php echo $actualQuartiere === 'centro' ? 'selected' : ''; ?>>Quartiere Centro</option>
                 <option value="ceresolo" <?php echo $actualQuartiere === 'ceresolo' ? 'selected' : ''; ?>>Quartiere Ceresolo</option>
-                <option value="giovi" <?php echo $actualQuartiere === 'giovi' ? 'selected' : ''; ?>>Villaggio dei Giovi</option>
                 <option value="fiori" <?php echo $actualQuartiere === 'fiori' ? 'selected' : ''; ?>>Villaggio dei Fiori</option>
+                <option value="giovi" <?php echo $actualQuartiere === 'giovi' ? 'selected' : ''; ?>>Villaggio dei Giovi</option>
+                <option value="sanfrancesco" <?php echo $actualQuartiere === 'sanfrancesco' ? 'selected' : ''; ?>>Quartiere San Francesco</option>
                 <option value="sole" <?php echo $actualQuartiere === 'sole' ? 'selected' : ''; ?>>Villaggio del Sole</option>
             </select>
         </p>
