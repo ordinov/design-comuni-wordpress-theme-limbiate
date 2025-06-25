@@ -10,6 +10,16 @@
 
 get_header();
 ?>
+
+<style>
+    .lavori-pub-img-desc {
+        text-align: right;
+        font-size: 0.8rem;
+        font-style: italic;
+        padding-right: 6px;
+    }
+</style>
+
 <main>
     <?php
     while (have_posts()) :
@@ -39,6 +49,10 @@ get_header();
         $tipologia_lavori = get_post_meta(get_the_ID(), 'tipologia_lavori', true);
         $html_content = get_the_content(get_the_ID());
         $featured_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
+        if ($featured_image) {
+            $thumbnail_id = get_post_thumbnail_id(get_the_ID());
+            $thumbnailObject = get_post($thumbnail_id);
+        }
     ?>
         <div class="container px-4 my-4" id="main-container">
             <div class="row">
@@ -72,14 +86,20 @@ get_header();
                                 if ($featured_image) {
                                     echo '<div class="gallery-item">';
                                     echo '<img src="' . esc_url($featured_image) . '">';
+                                    if ($thumbnailObject) {
+                                        echo '<div class="lavori-pub-img-desc">' . esc_html($thumbnailObject->post_content) . '</div>';
+                                    }
                                     echo '</div>';
                                 }
                                 if ($gallery_images) {
                                     $image_ids = explode(',', $gallery_images);
                                     foreach ($image_ids as $image_id) {
+                                        $imageObject = get_post($image_id);
+                                        $imgDescription = $imageObject->post_content;
                                         $image_url = wp_get_attachment_image_src($image_id, 'large');
                                         echo '<div class="gallery-item">';
                                         echo '<img src="' . esc_url($image_url[0]) . '" alt="' . esc_attr(get_post_meta($image_id, '_wp_attachment_image_alt', true)) . '">';
+                                        echo '<div class="lavori-pub-img-desc">' . esc_html($imgDescription) . '</div>';
                                         echo '</div>';
                                     }
                                 }
