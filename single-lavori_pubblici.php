@@ -85,11 +85,18 @@ get_header();
                                 <?php
                                 if ($featured_image) {
                                     echo '<div class="gallery-item">';
+                                    if (is_user_logged_in()) {
+                                        echo '<a href="https://lavori.comune.limbiate.mb.it/wp-admin/upload.php?item=' . $thumbnail_id .'" target="_blank" rel="noopener noreferrer">';
+                                    }
                                     echo '<img src="' . esc_url($featured_image) . '">';
+                                    if (is_user_logged_in()) {
+                                        echo '</a>';
+                                    }
                                     if ($thumbnailObject) {
                                         echo '<div class="lavori-pub-img-desc">' . esc_html($thumbnailObject->post_content) . '</div>';
                                     }
                                     echo '</div>';
+
                                 }
                                 if ($gallery_images) {
                                     $image_ids = explode(',', $gallery_images);
@@ -97,10 +104,18 @@ get_header();
                                         $imageObject = get_post($image_id);
                                         $imgDescription = $imageObject->post_content;
                                         $image_url = wp_get_attachment_image_src($image_id, 'large');
+
                                         echo '<div class="gallery-item">';
+                                        if (is_user_logged_in()) {
+                                            echo '<a href="https://lavori.comune.limbiate.mb.it/wp-admin/upload.php?item=' . $image_id .'" target="_blank" rel="noopener noreferrer">';
+                                        }
                                         echo '<img src="' . esc_url($image_url[0]) . '" alt="' . esc_attr(get_post_meta($image_id, '_wp_attachment_image_alt', true)) . '">';
+                                        if (is_user_logged_in()) {
+                                            echo '</a>';
+                                        }
                                         echo '<div class="lavori-pub-img-desc">' . esc_html($imgDescription) . '</div>';
                                         echo '</div>';
+
                                     }
                                 }
                                 ?>
