@@ -91,5 +91,5 @@ function dci_show_is_current_column($content, $column_name, $term_id) {
 }
 
 add_action('admin_head', function() {
-    echo '<style>#poststuff .stagioni_evento-all { display: none !important; }</style>';
+    echo '<style>.stagioni_evento-all { display: none !important; }</style>';
 });
