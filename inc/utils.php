@@ -487,6 +487,22 @@ function dci_get_tipo_evento($id) {
     return $result;
 }
 
+function dci_get_stagione_evento($id) {
+    $term = get_the_terms($id, 'stagioni_evento');
+    if (is_array($term)) {
+        $term = array_shift( $term );
+    }
+    $result = array();
+    if (is_array($term)) {
+        $result = array(
+            'name' => $term->name,
+            'slug' => $term->slug,
+            'id' => $term->term_id,
+        );
+    }
+    return $result;
+}
+
 /**
  * get all children events
  */

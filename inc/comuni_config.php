@@ -90,6 +90,7 @@ function dci_get_tassonomie_names(){
     $tassonomie = array(
         'categorie_servizio',
         'tipi_evento',
+        'stagioni_evento',
         'tipi_notizia',
         'tipi_luogo',
         'argomenti',

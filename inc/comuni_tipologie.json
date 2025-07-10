@@ -10,6 +10,7 @@
             "group_name" : "Vivere il comune",
             "taxonomy" : [
                 "tipi_evento",
+                "stagioni_evento",
                 "argomenti"
             ]
         },

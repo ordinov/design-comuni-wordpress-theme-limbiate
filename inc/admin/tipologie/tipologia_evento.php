@@ -66,6 +66,23 @@ function dci_add_eventi_metaboxes()
         'priority'     => 'high',
     ));
 
+    //stagioni
+    $cmb_stagioni = new_cmb2_box(array(
+        'id'           => $prefix . 'box_stagioni_evento',
+        'title'        => __('Stagioni', 'design_comuni_italia'),
+        'object_types' => array('evento'),
+        'context'      => 'side',
+        'priority'     => 'high',
+    ));
+
+    $cmb_stagioni->add_field(array(
+        'id' => $prefix . 'stagioni',
+        'type'             => 'taxonomy_multicheck_hierarchical',
+        'taxonomy'       => 'stagioni_evento',
+        //'show_option_none' => false,
+        //'remove_default' => 'true',
+    ));
+
     //tipo evento
     $cmb_tipo_evento = new_cmb2_box(array(
         'id'           => $prefix . 'box_tipo_evento',

@@ -116,6 +116,12 @@ function insertCustomTaxonomyTerms() {
     recursionInsertTaxonomy($tipi_evento_array, 'tipi_evento');
 
     /**
+     * Stagioni di Evento
+     */
+    $stagioni_evento = dci_stagioni_evento_array();
+    recursionInsertTaxonomy($stagioni_evento, 'stagioni_evento');
+
+    /**
      * Tipi di Unità organizzativa
      */
     $tipi_unita_organizzativa_array = dci_tipi_unita_organizzativa_array();

@@ -43,11 +43,22 @@ $prefix = '_dci_evento_';
 		$eventi_query = new WP_Query($args);
 		$allPosts = $eventi_query->get_posts();
 		usort($allPosts, function ($postA, $postB) use ($prefix) {
-			// Fetch timestamps for each post
-			$timestampA = dci_get_meta('data_orario_inizio', $prefix, $postA->ID);
-			$timestampB = dci_get_meta('data_orario_inizio', $prefix, $postB->ID);
+			// Helper to get the correct timestamp for sorting
+			$getEventTimestamp = function($post) use ($prefix) {
+				$multipleDates = dci_get_meta('date_multiple', $prefix, $post->ID);
+				if ($multipleDates && is_array($multipleDates) && count($multipleDates) > 0) {
+					$multipleDates = array_values($multipleDates);
+					$firstDate = $multipleDates[0];
+					if (isset($firstDate['_dci_evento_date_multiple_time_date'])) {
+						return strtotime($firstDate['_dci_evento_date_multiple_time_date'] . '00:00');
+					}
+				}
+				return dci_get_meta('data_orario_inizio', $prefix, $post->ID);
+			};
 
-			// Compare timestamps
+			$timestampA = $getEventTimestamp($postA);
+			$timestampB = $getEventTimestamp($postB);
+
 			if ($timestampA == $timestampB) {
 				return 0;
 			}

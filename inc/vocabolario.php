@@ -630,6 +630,14 @@ if(!function_exists("dci_tipi_evento_array")){
     }
 }
 
+if(!function_exists("dci_stagioni_evento_array")){
+    function dci_stagioni_evento_array() {
+        $stagioni_evento_arr = [
+        ];
+        return $stagioni_evento_arr;
+    }
+}
+
 /**
  * Classificazione dei tipi di documento, definita nel Vocabolario Controllato Tipi di Documenti delle Pubbliche Amministrazioni
  */
