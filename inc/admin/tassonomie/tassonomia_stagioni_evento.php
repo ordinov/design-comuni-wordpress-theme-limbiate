@@ -89,7 +89,3 @@ function dci_show_is_current_column($content, $column_name, $term_id) {
     }
     return $content;
 }
-
-add_action('admin_head', function() {
-    echo '<style>.stagioni_evento-all { display: none !important; }</style>';
-});
