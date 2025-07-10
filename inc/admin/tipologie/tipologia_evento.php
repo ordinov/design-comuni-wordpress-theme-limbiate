@@ -75,13 +75,13 @@ function dci_add_eventi_metaboxes()
         'priority'     => 'high',
     ));
 
-    // $cmb_stagioni->add_field(array(
-    //     'id' => $prefix . 'stagioni',
-    //     'type'             => 'taxonomy_multicheck_hierarchical',
-    //     'taxonomy'       => 'stagioni_evento',
-    //     //'show_option_none' => false,
-    //     //'remove_default' => 'true',
-    // ));
+    $cmb_stagioni->add_field(array(
+        'id' => $prefix . 'stagioni',
+        'type'             => 'taxonomy_multicheck_hierarchical',
+        'taxonomy'       => 'stagioni_evento',
+        //'show_option_none' => false,
+        //'remove_default' => 'true',
+    ));
 
     //tipo evento
     $cmb_tipo_evento = new_cmb2_box(array(
