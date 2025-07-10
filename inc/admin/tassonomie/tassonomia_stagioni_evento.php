@@ -90,3 +90,6 @@ function dci_show_is_current_column($content, $column_name, $term_id) {
     return $content;
 }
 
+add_action('admin_head', function() {
+    echo '<style>#poststuff .cms_admin_id_meta_box { display: none !important; }</style>';
+});
