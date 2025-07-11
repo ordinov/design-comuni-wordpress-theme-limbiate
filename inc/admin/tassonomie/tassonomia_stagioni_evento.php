@@ -72,6 +72,20 @@ add_action('created_stagioni_evento', 'dci_save_is_current_meta', 10, 2);
 
 function dci_save_is_current_meta($term_id, $tt_id) {
     $value = isset($_POST['is_current']) ? 1 : 0;
+    // Se il valore è 1, deflagga tutte le altre stagioni
+    if ($value === 1) {
+        $all_terms = get_terms([
+            'taxonomy' => 'stagioni_evento',
+            'hide_empty' => false,
+            'fields' => 'ids',
+        ]);
+
+        foreach ($all_terms as $other_term_id) {
+            if ((int)$other_term_id !== (int)$term_id) {
+                update_term_meta($other_term_id, 'is_current', 0);
+            }
+        }
+    }
     update_term_meta($term_id, 'is_current', $value);
 }
 

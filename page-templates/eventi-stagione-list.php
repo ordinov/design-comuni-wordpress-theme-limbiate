@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Eventi (Lista)
+/* Template Name: Eventi Stagione (Lista)
  *
  * Eventi List template file
  *
@@ -36,37 +36,71 @@ $prefix = '_dci_evento_';
 			</section>
 		<?php } ?>
 		<?php
-		$args = array(
-			'post_type'      => 'evento',
-			'posts_per_page' => -1,
-		);
-		$eventi_query = new WP_Query($args);
-		$allPosts = $eventi_query->get_posts();
-		usort($allPosts, function ($postA, $postB) use ($prefix) {
-			// Helper to get the correct timestamp for sorting
-			$getEventTimestamp = function($post) use ($prefix) {
-				$multipleDates = dci_get_meta('date_multiple', $prefix, $post->ID);
-				if ($multipleDates && is_array($multipleDates) && count($multipleDates) > 0) {
-					$multipleDates = array_values($multipleDates);
-					$firstDate = $multipleDates[0];
-					if (isset($firstDate['_dci_evento_date_multiple_time_date'])) {
-						return strtotime($firstDate['_dci_evento_date_multiple_time_date'] . '00:00');
-					}
-				}
-				return dci_get_meta('data_orario_inizio', $prefix, $post->ID);
-			};
 
-			$timestampA = $getEventTimestamp($postA);
-			$timestampB = $getEventTimestamp($postB);
+		$allPosts = [];
 
-			if ($timestampA == $timestampB) {
-				return 0;
+		$current_season_term = null;
+		$season_terms = get_terms([
+			'taxonomy' => 'stagioni_evento',
+			'hide_empty' => false,
+		]);
+		foreach ($season_terms as $term) {
+			if ((int) get_term_meta($term->term_id, 'is_current', true) === 1) {
+				$current_season_term = $term;
+				break;
 			}
-			return ($timestampA < $timestampB) ? -1 : 1;
-		});
+		}
+
+		if ($current_season_term) {
+			$args['tax_query'] = [
+				[
+					'taxonomy' => 'stagioni_evento',
+					'field'    => 'term_id',
+					'terms'    => [$current_season_term->term_id],
+				],
+			];
+
+			$eventi_query = new WP_Query($args);
+			$allPosts = $eventi_query->get_posts();
+			usort($allPosts, function ($postA, $postB) use ($prefix) {
+				// Helper to get the correct timestamp for sorting
+				$getEventTimestamp = function($post) use ($prefix) {
+					$multipleDates = dci_get_meta('date_multiple', $prefix, $post->ID);
+					if ($multipleDates && is_array($multipleDates) && count($multipleDates) > 0) {
+						$multipleDates = array_values($multipleDates);
+						$firstDate = $multipleDates[0];
+						if (isset($firstDate['_dci_evento_date_multiple_time_date'])) {
+							return strtotime($firstDate['_dci_evento_date_multiple_time_date'] . '00:00');
+						}
+					}
+					return dci_get_meta('data_orario_inizio', $prefix, $post->ID);
+				};
+
+				$timestampA = $getEventTimestamp($postA);
+				$timestampB = $getEventTimestamp($postB);
+
+				if ($timestampA == $timestampB) {
+					return 0;
+				}
+				return ($timestampA < $timestampB) ? -1 : 1;
+			});
+		} 
+		// else {
+		// 	$args = array(
+		// 		'post_type'      => 'evento',
+		// 		'posts_per_page' => -1,
+		// 	);
+		// }
 		?>
 		<div class="bg-grey-dsk py-5">
 			<div class="container">
+				<?php
+					if ($current_season_term) {
+						echo '<h5 class="mb-4" style="margin-top: -20px;">Eventi per la stagione ' . esc_html($current_season_term->name) . '</h5>';
+					} else {
+						echo '<h5 class="mb-4">Torna a trovarci per scoprire la prossima stagione.</h5><br>';
+					}
+				?>
 				<div class="row g-4">
 					<?php
 					foreach ($allPosts as $postEvent) {
