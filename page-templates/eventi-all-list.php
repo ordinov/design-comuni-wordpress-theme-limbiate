@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Eventi Tutti (Lista)
+/* Template Name: Eventi (Lista)
  *
  * Eventi List template file
  *
