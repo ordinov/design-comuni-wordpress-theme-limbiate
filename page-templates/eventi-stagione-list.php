@@ -52,11 +52,15 @@ $prefix = '_dci_evento_';
 		}
 
 		if ($current_season_term) {
-			$args['tax_query'] = [
-				[
-					'taxonomy' => 'stagioni_evento',
-					'field'    => 'term_id',
-					'terms'    => [$current_season_term->term_id],
+			$args = [
+				'post_type'      => 'evento',
+				'posts_per_page' => -1, // Get all matching posts
+				'tax_query'      => [
+					[
+						'taxonomy' => 'stagioni_evento',
+						'field'    => 'term_id',
+						'terms'    => [$current_season_term->term_id],
+					],
 				],
 			];
 
